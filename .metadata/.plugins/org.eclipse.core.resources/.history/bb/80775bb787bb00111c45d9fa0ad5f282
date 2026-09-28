@@ -1,9 +1,7 @@
 package model.game;
 
 import java.awt.Image;
-import java.util.List;
 import java.awt.event.KeyEvent;
-import java.util.ArrayList;
 
 import javax.swing.ImageIcon;
 
@@ -13,14 +11,10 @@ public class Player {
 	private Image imagem;
 	private int altura, largura;
 	
-	private List<Tiro> tiros;
-	
 //construtor definindo onde o player vai spawnar na tela
 	public Player() {
 		this.x = 100;
 		this.y = 100;
-		
-		tiros = new ArrayList<Tiro>();
 	}
 	
 //método para definir a imagem do jogador
@@ -39,18 +33,10 @@ public class Player {
 		x += dx;
 		y += dy;
 	}
-	
-	public void tiroSimples() {
-		this.tiros.add(new Tiro(x + largura, y + (altura / 2)));
-	}
 
 //método para definir a tecla que vai movimentar o player
 	public void keyPressed(KeyEvent tecla) {
 		int codigo = tecla.getKeyCode();
-		
-		if(codigo == KeyEvent.VK_A) {
-			tiroSimples();
-		}
 		
 		if(codigo == KeyEvent.VK_UP) {
 			dy = -3;
@@ -85,7 +71,7 @@ public class Player {
 			dx = 0;
 		}
 		
-		if(codigo == KeyEvent.VK_RIGHT) {
+		if(codigo == KeyEvent.VK_UP) {
 			dx = 0;
 		}
 	}
@@ -100,10 +86,6 @@ public class Player {
 
 	public Image getImagem() {
 		return imagem;
-	}
-
-	public List<Tiro> getTiros() {
-		return tiros;
 	}
 	
 	

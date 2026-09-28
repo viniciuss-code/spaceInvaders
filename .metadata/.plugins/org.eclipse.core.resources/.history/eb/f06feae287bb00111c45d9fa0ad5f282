@@ -85,7 +85,7 @@ public class Player {
 			dx = 0;
 		}
 		
-		if(codigo == KeyEvent.VK_RIGHT) {
+		if(codigo == KeyEvent.VK_UP) {
 			dx = 0;
 		}
 	}
