@@ -50,8 +50,8 @@ public class Player {
 			dx = -3;
 		}
 		
-		if(codigo == KeyEvent.VK_RIGHT) {
-			dx = 3;
+		if(codigo == KeyEvent.VK_UP) {
+			dy = 3;
 		}
 	}
 	
@@ -72,7 +72,7 @@ public class Player {
 		}
 		
 		if(codigo == KeyEvent.VK_UP) {
-			dx = 0;
+			dy = 0;
 		}
 	}
 

@@ -39,7 +39,7 @@ public class Player {
 		int codigo = tecla.getKeyCode();
 		
 		if(codigo == KeyEvent.VK_UP) {
-			dy = -3;
+			dx = -3;
 		}
 		
 		if(codigo == KeyEvent.VK_DOWN) {
@@ -51,7 +51,7 @@ public class Player {
 		}
 		
 		if(codigo == KeyEvent.VK_RIGHT) {
-			dx = 3;
+			dy = 3;
 		}
 	}
 	
@@ -72,7 +72,7 @@ public class Player {
 		}
 		
 		if(codigo == KeyEvent.VK_UP) {
-			dx = 0;
+			dy = 0;
 		}
 	}
 
