@@ -1,6 +1,7 @@
 package model.game;
 
 import java.awt.Image;
+import java.awt.Rectangle;
 import java.util.List;
 import java.awt.event.KeyEvent;
 import java.util.ArrayList;
@@ -12,14 +13,14 @@ public class Player {
 	private int dx, dy;
 	private Image imagem;
 	private int altura, largura;
-	
 	private List<Tiro> tiros;
+	private boolean isVisivel;
 	
 //construtor definindo onde o player vai spawnar na tela
 	public Player() {
 		this.x = 100;
 		this.y = 100;
-		
+		isVisivel = true;
 		tiros = new ArrayList<Tiro>();
 	}
 	
@@ -43,6 +44,11 @@ public class Player {
 	public void tiroSimples() {
 		this.tiros.add(new Tiro(x + largura, y + (altura / 2)));
 	}
+	
+	public Rectangle getBounds() {
+		return new Rectangle(x, y, largura, altura);
+	}
+
 
 //método para definir a tecla que vai movimentar o player
 	public void keyPressed(KeyEvent tecla) {
@@ -88,6 +94,16 @@ public class Player {
 		if(codigo == KeyEvent.VK_RIGHT) {
 			dx = 0;
 		}
+	}
+	
+	
+
+	public boolean isVisivel() {
+		return isVisivel;
+	}
+
+	public void setVisivel(boolean isVisivel) {
+		this.isVisivel = isVisivel;
 	}
 
 	public int getX() {

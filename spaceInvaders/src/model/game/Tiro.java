@@ -1,6 +1,7 @@
 package model.game;
 
 import java.awt.Image;
+import java.awt.Rectangle;
 
 import javax.swing.ImageIcon;
 
@@ -34,6 +35,10 @@ public class Tiro {
 			isVisivel = false;
 		}
 	}
+	
+	public Rectangle getBounds() {
+		return new Rectangle(x, y, largura, altura);
+	}
 
 	public boolean isVisivel() {
 		return isVisivel;
@@ -47,8 +52,8 @@ public class Tiro {
 		return VELOCIDADE;
 	}
 
-	public static void setVELOCIDADE(int vELOCIDADE) {
-		VELOCIDADE = vELOCIDADE;
+	public static void setVELOCIDADE(int velocidade) {
+		VELOCIDADE = velocidade;
 	}
 
 	public int getX() {
