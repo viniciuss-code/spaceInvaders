@@ -21,7 +21,7 @@ public class Tiro {
 	}
 	
 	public void load() {
-		ImageIcon referencia = new ImageIcon("/home/vini/Documentos/spaceInvaders/spaceInvaders/res/TiroSimples.png");
+		ImageIcon referencia = new ImageIcon("C:\\Users\\Vini\\Documents\\SpaceInvaders\\spaceInvaders\\spaceInvaders\\res\\TiroSimples.png");
 		imagem = referencia.getImage();
 		
 		this.largura = imagem.getWidth(null);

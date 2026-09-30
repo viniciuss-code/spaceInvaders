@@ -1,4 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<session version="1.0">
-<refactoring comment="Copy element &apos;Tiro.java&apos; to &apos;spaceInvaders/src/model.game&apos;&#x0A;- Original project: &apos;spaceInvaders&apos;&#x0A;- Destination element: &apos;spaceInvaders/src/model.game&apos;&#x0A;- Original element: &apos;model.game.Tiro.java&apos;" description="Copy compilation unit" destination="/src&lt;model.game" element1="/src&lt;model.game{Tiro.java" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1790633075725" units="1" version="1.0"/>
-</session>

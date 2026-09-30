@@ -22,6 +22,7 @@ public class Fase extends JPanel implements ActionListener {
 	private Player player;
 	private Timer timer;
 	private List<Enemy1> enemy1;
+	private List<Stars> stars;
 	private boolean emJogo;
 
 //construtor que vai definir o background da fase
@@ -30,7 +31,7 @@ public class Fase extends JPanel implements ActionListener {
 		setDoubleBuffered(true);
 
 //objeto do tipo ImageIcon sendo instanciado, recebendo como argumento o caminho para o arquivo contendo o plano de fundo da fase.
-		ImageIcon referencia = new ImageIcon("/home/vini/Documentos/spaceInvaders/spaceInvaders/res/Background.png");
+		ImageIcon referencia = new ImageIcon("C:\\Users\\Vini\\Documents\\SpaceInvaders\\spaceInvaders\\spaceInvaders\\res\\Background.png");
 //atributo imagem recebendo o objeto do tipo ImageIcon utilizando o método  getImage();
 		fundo = referencia.getImage();
 
@@ -44,6 +45,7 @@ public class Fase extends JPanel implements ActionListener {
 		timer.start();
 
 		inicializaInimigos();
+		 inicializaStars();
 		emJogo = true;
 	}
 
@@ -57,11 +59,28 @@ public class Fase extends JPanel implements ActionListener {
 			enemy1.add(new Enemy1(x, y));
 		}
 	}
-
+	
+	public void inicializaStars() {
+		int coordenadas[] = new int[500];
+		stars = new ArrayList<Stars>();
+		for (int i = 0; i < coordenadas.length; i++) {
+			int x = (int) (Math.random() * 1024 + 0);
+			int y = (int) (Math.random() * 768 + 0);
+			stars.add(new Stars(x, y));
+		}
+	}
+	
 	public void paint(Graphics g) {
 		Graphics2D graficos = (Graphics2D) g;
 		if (emJogo == true) {
 			graficos.drawImage(fundo, 0, 0, null);
+			
+			for (int p = 0; p< stars.size(); p++) {
+				Stars q = stars.get(p);
+				q.load();
+				graficos.drawImage(q.getImagem(), q.getX(), q.getY(), this);
+			}
+			
 			graficos.drawImage(player.getImagem(), player.getX(), player.getY(), this);
 
 			List<Tiro> tiros = player.getTiros();
@@ -78,7 +97,7 @@ public class Fase extends JPanel implements ActionListener {
 			}
 		}
 		else {
-			ImageIcon fimJogo = new ImageIcon("/home/vini/Documentos/spaceInvaders/spaceInvaders/res/fimdejogo.png");
+			ImageIcon fimJogo = new ImageIcon("C:\\Users\\Vini\\Documents\\SpaceInvaders\\spaceInvaders\\spaceInvaders\\res\\fimdejogo.png");
 			graficos.drawImage(fimJogo.getImage(), 0, 0, null);
 		}
 
@@ -88,6 +107,17 @@ public class Fase extends JPanel implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		player.update();
+		
+		for(int p = 0; p <stars.size(); p++) {
+			Stars on = stars.get(p);
+				if(on.isVisivel()) {
+					on.update();
+				}
+				else {
+					stars.remove(p);
+				}
+		}
+		
 		List<Tiro> tiros = player.getTiros();
 		for (int i = 0; i < tiros.size(); i++) {
 			Tiro m = tiros.get(i);

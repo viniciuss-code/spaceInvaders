@@ -27,7 +27,7 @@ public class Player {
 //método para definir a imagem do jogador
 	public void load() {
 //Instancia um objeto do tipo ImageIcon passando como argumento o caminho do arquivo da imagem.
-		ImageIcon referencia = new ImageIcon("/home/vini/Documentos/spaceInvaders/spaceInvaders/res/spaceship2.png");
+		ImageIcon referencia = new ImageIcon("C:\\Users\\Vini\\Documents\\SpaceInvaders\\spaceInvaders\\spaceInvaders\\res\\spaceship2.png");
 //atributo imagem recebendo o objeto do tipo ImageIcon utilizando o método  getImage();
 		imagem = referencia.getImage();
 		

@@ -2,6 +2,7 @@ package model.game;
 
 import java.awt.Image;
 import java.awt.Rectangle;
+import java.util.Random;
 
 import javax.swing.ImageIcon;
 
@@ -12,7 +13,7 @@ public class Enemy1 {
 	private boolean isVisivel;
 	
 	//private static final int LARGURA = 938;
-	private static int VELOCIDADE = 1;
+	private static int VELOCIDADE = 2;
 	
 	public Enemy1(int x, int y) {
 		this.x = x;
@@ -21,7 +22,7 @@ public class Enemy1 {
 	}
 	
 	public void load() {
-		ImageIcon referencia = new ImageIcon("/home/vini/Documentos/spaceInvaders/spaceInvaders/res/enemy1.png");
+		ImageIcon referencia = new ImageIcon("C:\\Users\\Vini\\Documents\\SpaceInvaders\\spaceInvaders\\spaceInvaders\\res\\enemy1.png");
 		imagem = referencia.getImage();
 		
 		this.largura = imagem.getWidth(null);
@@ -35,12 +36,10 @@ public class Enemy1 {
 		//	isVisivel = false;
 		//}
 	}
-	
 	public Rectangle getBounds() {
 		return new Rectangle(x, y, largura, altura);
 	}
-
-
+	
 	public boolean isVisivel() {
 		return isVisivel;
 	}
